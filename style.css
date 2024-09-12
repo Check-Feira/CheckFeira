@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body{
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.page{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: rgb(71,40,185);
+  background: linear-gradient(90deg, rgba(71,40,185,1) 0%, rgba(81,205,158,1) 100%,   rgba(0,39,230,1) 100%);
+}
+
+.card{
+  background-color: #e6e5e5;
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+ form{
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+ }
+
+.campo{
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #0027e6;
+}
+
+
+.campo2{
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #51cd9e;
+  background-color: #51cd9e;
+  cursor: pointer;
+  transition: all linear 190ms;
+}
+
+.campo2:hover{
+  transform: scale(1.05);
+}
+
+.sub{
+  font-size: 0.9em;
+  color: #0027e6;
+}
+
+h1{
+  font-size: 2.0em;
+  font-weight: 600;
+  text-align: center;
+  color: #0027e6;
+}
