@@ -1,0 +1,26 @@
+.form-control:focus {
+  border-color: var(--bs-success);
+  box-shadow: 0 0 0 .25rem rgba(19, 87, 54, .25);
+}
+
+.span--error {
+  font-size: 14px;
+  color: red;
+}
+
+.container__content {
+  width: 100%;
+  max-width: 350px;
+}
+
+.content__form {
+  padding: 16px;
+  margin-bottom: 22px;
+  border-radius: var(--bs-border-radius);
+}
+
+@media (min-width: 576px) {
+  .__container {
+    margin-top: 50px;
+  }
+}

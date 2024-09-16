@@ -1,0 +1,68 @@
+.landing__container {
+  height: 100vh;
+  padding-top: 30px;
+  background-image: url('https://cdn.shopify.com/b/shopify-brochure2-assets/d6871d3f4578bf4ec7e7d85f961fe559.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}
+
+.stack__nameApp {}
+
+.stack__titleBox {
+  width: 100%;
+  max-width: 808px;
+}
+
+.stack__titleBox>h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: -.02em;
+  line-height: 3rem;
+}
+
+.stack__btnbox {
+  width: 100%;
+  max-width: 208px;
+}
+
+.stack__imagem--resize>img {
+  width: 100%;
+  max-width: fit-content;
+}
+
+.card {
+  border: none;
+  background: transparent;
+}
+
+.card>img {
+  margin-bottom: 1rem;
+}
+
+.card-img-top {
+  width: 50px;
+  height: 50px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 2rem;
+}
+
+.card-body {
+  padding: 0;
+}
+
+@media (min-width: 576px) {
+  .card{
+    flex:0 1 49%;
+    max-width: 28rem;
+  }
+  .card>img {
+    margin-bottom: 1.5rem;
+  }
+}
+
