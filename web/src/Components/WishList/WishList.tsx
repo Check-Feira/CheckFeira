@@ -21,7 +21,7 @@ export function WishList() {
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
 
-  const wishlistItems = Array.isArray(items) ? items.filter(item => item.name.toLowerCase().includes(search.toLowerCase())) : [];
+ const wishlistItems = items.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
 
 
   const handleCloseModal = () => setShowModal(false);
@@ -42,7 +42,7 @@ export function WishList() {
   const getWishListItems = async () => {
     try {
       const response = await api.getWishList();
-      setItems(Array.isArray(response) ? response : []);
+     setItems(response);
     } catch (error) {
       console.error("Error fetching wishlist:", error);
     }
@@ -59,7 +59,7 @@ export function WishList() {
   const handleDeleteItem = async (itemId: string) => {
     try {
       await api.deleteWishList(itemId);
-      const updatedProducts = items.filter(item => item._id !== itemId);
+      const updatedProducts = items.filter(item => item.objectId !== itemId);
       setItems(updatedProducts);
     } catch (error) {
       console.error("Error deleting product:", error);
@@ -77,11 +77,11 @@ export function WishList() {
   };
 
   const handleUpdateItem = async (itemId: string) => {
-    const { _id, ...updatedFields } = updateItem;
+    const { objectId, ...updatedFields } = updateItem;
     try {
       await api.putWishList(itemId, updatedFields);
       const updatedItems = items.map(item =>
-        item._id === itemId ? updateItem : item
+        item.objectId === itemId ? updateItem : item
       );
       setItems(updatedItems);
       handleCloseModal();
@@ -110,8 +110,8 @@ export function WishList() {
                   <td>{item.price}</td>
                   <td>
                     <ButtonGroup>
-                      <Button variant='white' onClick={() => handleEditItem(item?._id)}><Image src={iconPencil} /></Button>
-                      <Button variant='white' onClick={() => handleDeleteItem(item?._id)}><Image src={iconTrash} /></Button>
+                      <Button variant='white' onClick={() => handleEditItem(item?.objectId)}><Image src={iconPencil} /></Button>
+                      <Button variant='white' onClick={() => handleDeleteItem(item?.objectId)}><Image src={iconTrash} /></Button>
                     </ButtonGroup>
                   </td>
                 </tr>
@@ -151,7 +151,7 @@ export function WishList() {
           <Button variant="secondary" onClick={handleCloseModal}>
             Cancelar
           </Button>
-          <Button variant="success" onClick={() => handleUpdateItem(updateItem._id)}>
+          <Button variant="success" onClick={() => handleUpdateItem(updateItem.objectId)}>
             Salvar
           </Button>
         </Modal.Footer>

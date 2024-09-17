@@ -14,8 +14,8 @@ export const axiosConfig = axios.create({
 const api = {
   getWishList: async () => {
     try {
-      const res = await axiosConfig.get("/wishlist");
-      return res.data;
+      const res = await axiosConfig.get("/produto");
+      return res.data.results;
     } catch (error) {
       console.error("Error getting wishlist", error);
       throw error;
@@ -24,7 +24,7 @@ const api = {
   getWishListItem: async (itemId: string) => {
     try {
       const res = await axiosConfig.get(`/wishlist/${itemId}`);
-      return res.data;
+      return res.data.results;
     } catch (error) {
       console.error("Error getting wishlist item", error);
       throw error;
@@ -33,7 +33,7 @@ const api = {
   postWishList: async (item: newWishListItem) => {
     try {
       const res = await axiosConfig.post("/produto", item);
-      return res.data;
+      return res.data.results;
     } catch (error) {
       console.error("Error posting wishlist item:", error);
       throw error;
@@ -41,8 +41,8 @@ const api = {
   },
   putWishList: async (itemId: string, updatedItem: Partial<WishlistItem>) => {
     try {
-      const res = await axiosConfig.put(`/wishlist/${itemId}`, updatedItem);
-      return res.data;
+      const res = await axiosConfig.put(`/produto/${itemId}`, updatedItem);
+      return res.data.results;
     } catch (error) {
       console.error("Error updating wishlist item:", error);
       throw error;
@@ -50,8 +50,8 @@ const api = {
   },
   deleteWishList: async (itemId: string) => {
     try {
-      const res = await axiosConfig.delete(`/wishlist/${itemId}`);
-      return res.data;
+      const res = await axiosConfig.delete(`/produto/${itemId}`);
+      return res.data.results;
     } catch (error) {
       console.error("Error deleting wishlist item:", error);
       throw error;
