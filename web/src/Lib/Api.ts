@@ -23,7 +23,7 @@ const api = {
   },
   getWishListItem: async (itemId: string) => {
     try {
-      const res = await axiosConfig.get(`/wishlist/${itemId}`);
+      const res = await axiosConfig.get(`/produto/${itemId}`);
       return res.data.results;
     } catch (error) {
       console.error("Error getting wishlist item", error);
