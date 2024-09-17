@@ -1,14 +1,20 @@
 import axios from "axios";
-import { WishlistItem, newWishListItem } from '../Types/WishlistItem.interface'
+import { WishlistItem, newWishListItem } from "../Types/WishlistItem.interface";
 
 export const axiosConfig = axios.create({
-  baseURL: 'http://localhost:4356',
+  baseURL: "https://parseapi.back4app.com/parse/classes",
+  headers: {
+    "X-Parse-Application-Id": "uoNeJLIaeD5HTPWRPcWYiQH0KvG3WcIglzYE6tE1",
+    "X-Parse-REST-API-Key": "dTuCzfM0wa5LyhHMIiPhjzlpGLYksk92YmIveraq",
+      "Content-type": "application/json"
+  
+  },
 });
 
 const api = {
   getWishList: async () => {
     try {
-      const res = await axiosConfig.get('/wishlist');
+      const res = await axiosConfig.get("/wishlist");
       return res.data;
     } catch (error) {
       console.error("Error getting wishlist", error);
@@ -26,7 +32,7 @@ const api = {
   },
   postWishList: async (item: newWishListItem) => {
     try {
-      const res = await axiosConfig.post('/wishlist', item);
+      const res = await axiosConfig.post("/produto", item);
       return res.data;
     } catch (error) {
       console.error("Error posting wishlist item:", error);
