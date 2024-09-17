@@ -9,15 +9,15 @@ import Button from 'react-bootstrap/Button';
 import { Divider } from '../../../Components/Divider';
 
 import logo from '../../../Assets/icon-list.png';
+import { Link } from 'react-router-dom';
 
-import { useAuth } from '../../../Hooks';
+
 
 export function Header() {
 
-  const { signed, signout } = useAuth();
 
   const handleLogout = () => {
-    signout();
+   
   }
 
   return (
@@ -29,8 +29,8 @@ export function Header() {
           </div>
           <h5>Wish List</h5>
         </Stack>
-
-        {signed && <Button variant='success' className='ms-auto' onClick={handleLogout}>Sair</Button>}
+<Link to={`/management`} > <Button variant='success' className='ms-auto' onClick={handleLogout} >Cadatrar produto</Button></Link>
+ 
       </Stack>
       <Divider />
     </>

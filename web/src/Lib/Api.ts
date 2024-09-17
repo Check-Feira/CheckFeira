@@ -1,15 +1,21 @@
 import axios from "axios";
-import { WishlistItem, newWishListItem } from '../Types/WishlistItem.interface'
+import { WishlistItem, newWishListItem } from "../Types/WishlistItem.interface";
 
 export const axiosConfig = axios.create({
-  baseURL: 'http://localhost:3333',
+  baseURL: "https://parseapi.back4app.com/parse/classes",
+  headers: {
+    "X-Parse-Application-Id": "uoNeJLIaeD5HTPWRPcWYiQH0KvG3WcIglzYE6tE1",
+    "X-Parse-REST-API-Key": "dTuCzfM0wa5LyhHMIiPhjzlpGLYksk92YmIveraq",
+      "Content-type": "application/json"
+  
+  },
 });
 
 const api = {
   getWishList: async () => {
     try {
-      const res = await axiosConfig.get('/wishlist');
-      return res.data;
+      const res = await axiosConfig.get("/produto");
+      return res.data.results;
     } catch (error) {
       console.error("Error getting wishlist", error);
       throw error;
@@ -17,8 +23,8 @@ const api = {
   },
   getWishListItem: async (itemId: string) => {
     try {
-      const res = await axiosConfig.get(`/wishlist/${itemId}`);
-      return res.data;
+      const res = await axiosConfig.get(`/produto/${itemId}`);
+      return res.data.results;
     } catch (error) {
       console.error("Error getting wishlist item", error);
       throw error;
@@ -26,8 +32,8 @@ const api = {
   },
   postWishList: async (item: newWishListItem) => {
     try {
-      const res = await axiosConfig.post('/wishlist', item);
-      return res.data;
+      const res = await axiosConfig.post("/produto", item);
+      return res.data.results;
     } catch (error) {
       console.error("Error posting wishlist item:", error);
       throw error;
@@ -35,8 +41,8 @@ const api = {
   },
   putWishList: async (itemId: string, updatedItem: Partial<WishlistItem>) => {
     try {
-      const res = await axiosConfig.put(`/wishlist/${itemId}`, updatedItem);
-      return res.data;
+      const res = await axiosConfig.put(`/produto/${itemId}`, updatedItem);
+      return res.data.results;
     } catch (error) {
       console.error("Error updating wishlist item:", error);
       throw error;
@@ -44,8 +50,8 @@ const api = {
   },
   deleteWishList: async (itemId: string) => {
     try {
-      const res = await axiosConfig.delete(`/wishlist/${itemId}`);
-      return res.data;
+      const res = await axiosConfig.delete(`/produto/${itemId}`);
+      return res.data.results;
     } catch (error) {
       console.error("Error deleting wishlist item:", error);
       throw error;
