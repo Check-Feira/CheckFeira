@@ -2,7 +2,7 @@ import axios from "axios";
 import { WishlistItem, newWishListItem } from '../Types/WishlistItem.interface'
 
 export const axiosConfig = axios.create({
-  baseURL: 'http://localhost:3333',
+  baseURL: 'http://localhost:4356',
 });
 
 const api = {

@@ -1,23 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 
 // pages
-import { Landing, Management, Register } from "../Pages";
+import { Management} from "../Pages";
 
 // components
 import { DefaultLayout } from "../Components/Layout";
 
 // authentication 
-import { PrivateRoutes } from "../Helpers";
+
 
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Landing />,
-  },
-  {
-    element: <PrivateRoutes />,
-    children: [
-      {
+
+
+      {  path: '/',
         element: <DefaultLayout />,
         children: [
           {
@@ -26,10 +21,8 @@ const router = createBrowserRouter([
           }
         ]
       }
-    ],
-  },
-  { path: '/login', element: <Register />, },
-  { path: '/register', element: <Register /> },
+ 
+
 ]);
 
 export default router;
