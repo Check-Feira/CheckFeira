@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <>
-      <Stack direction='horizontal' className='w-100 justify-content-center pt-5'>
+      <Stack direction='horizontal' className='d-flex w-100 justify-content-between pt-5'>
         <Stack as='a' href="/" direction='horizontal' className='align-items-center gap-2 text-decoration-none text-success'>
           <div className='stack__image--size'>
             <Image src={logo} alt='logo' fluid />

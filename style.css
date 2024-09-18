@@ -5,7 +5,9 @@ body{
   margin: 0;
   font-family: 'Open Sans', sans-serif;
 }
-
+button{
+  background-color: #F2CC0C;
+}
 .page{
   display: flex;
   align-items: center;
