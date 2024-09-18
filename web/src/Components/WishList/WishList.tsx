@@ -21,8 +21,7 @@ export function WishList() {
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
 
- const wishlistItems = items.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
-
+  const wishlistItems = items.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
 
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
@@ -42,7 +41,7 @@ export function WishList() {
   const getWishListItems = async () => {
     try {
       const response = await api.getWishList();
-     setItems(response);
+      setItems(response);
     } catch (error) {
       console.error("Error fetching wishlist:", error);
     }
@@ -77,7 +76,7 @@ export function WishList() {
   };
 
   const handleUpdateItem = async (itemId: string) => {
-    const { objectId, ...updatedFields } = updateItem;
+    const { objectId, createdAt, updatedAt, ...updatedFields } = updateItem;
     try {
       await api.putWishList(itemId, updatedFields);
       const updatedItems = items.map(item =>
