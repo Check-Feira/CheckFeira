@@ -27,7 +27,7 @@ export function Header() {
           <div className='stack__image--size'>
             <Image src={logo} alt='logo' fluid />
           </div>
-          <h5>Wish List</h5>
+          <h5>Check Feira</h5>
         </Stack>
 <Link to={`/management`} > <Button variant='success' className='ms-auto' onClick={handleLogout} >Cadatrar produto</Button></Link>
  
