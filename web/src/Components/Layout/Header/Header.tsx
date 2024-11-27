@@ -9,28 +9,27 @@ import Button from 'react-bootstrap/Button';
 import { Divider } from '../../../Components/Divider';
 
 import logo from '../../../Assets/icon-list.png';
-import { Link } from 'react-router-dom';
 
-
+import { useAuth } from '../../../Hooks';
 
 export function Header() {
 
+  const { signed, signout } = useAuth();
 
   const handleLogout = () => {
-   
+    signout();
   }
 
   return (
     <>
-      <Stack direction='horizontal' className='d-flex w-100 justify-content-between pt-5'>
+      <Stack direction='horizontal' className='w-100 justify-content-center pt-5'>
         <Stack as='a' href="/" direction='horizontal' className='align-items-center gap-2 text-decoration-none text-success'>
           <div className='stack__image--size'>
             <Image src={logo} alt='logo' fluid />
           </div>
-          <h5>Check Feira</h5>
+          <h5>Wish List</h5>
         </Stack>
-<Link to={`/management`} > <Button variant='success' className='ms-auto' onClick={handleLogout} >Cadatrar produto</Button></Link>
- 
+        {signed && <Button variant='success' className='ms-auto' onClick={handleLogout}>Sair</Button>}
       </Stack>
       <Divider />
     </>

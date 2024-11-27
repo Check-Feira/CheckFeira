@@ -6,14 +6,16 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import router from './Routes/Router';
+import { UserAuthProvider } from './Contexts';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <UserAuthProvider>
       <RouterProvider router={router} />
-  
+    </UserAuthProvider>
   </React.StrictMode>
 );
 
